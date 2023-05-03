@@ -1,3 +1,4 @@
+--Finding average amoutn paid by top five customers
 SELECT 
 	   B.first_name,
 	   B.last_name,
