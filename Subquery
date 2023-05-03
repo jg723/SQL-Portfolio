@@ -1,0 +1,23 @@
+SELECT 
+	   B.first_name,
+	   B.last_name,
+	   B.email,
+	   B.city,
+	   ROUND(AVG(amount),2) AS average_payment,
+	   B.total_revenue  
+FROM payment A
+JOIN (SELECT A.customer_id,
+		   A.first_name,
+		   A.last_name,
+		   A.email,
+		   C.city,
+		   SUM(amount) AS total_revenue
+	FROM customer A
+	JOIN address B on A.address_id = B.address_id
+	JOIN city C ON B.city_id = C.city_id
+	JOIN payment E ON E.customer_id = A.customer_id
+	GROUP BY A.customer_id, city, first_name, last_name, email
+	ORDER BY  total_revenue desc
+	LIMIT 5) B ON A.customer_id = B.customer_id
+GROUP BY A.customer_id, city, first_name, last_name, email, total_revenue
+ORDER BY total_revenue DESC;
