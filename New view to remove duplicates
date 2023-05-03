@@ -1,0 +1,10 @@
+CREATE VIEW film_deduplicated AS
+SELECT title,
+       release_year,
+       language_id,
+       rental_duration
+FROM film
+GROUP BY title,
+         release_year,
+         language_id,
+         rental_duration
