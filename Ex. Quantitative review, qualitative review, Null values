@@ -1,0 +1,25 @@
+--Example of reviewing film data for odd values or outliers in quantitative data
+--Generally expecting length of a movie to be less than 248 minutes and longer than 
+SELECT MIN(length) AS min_length,
+       MAX(length) AS max_length,
+       AVG(length) AS avg_length,
+       COUNT(length) AS count_length,
+       COUNT(*) AS count_rows
+FROM film;
+
+--Example of reviewing film data for odd values in qualitative data
+--In this case expected ratings include, G, PG, PG-13, R, NC-17
+SELECT rating 
+FROM film
+Group By rating;
+
+-- Searching for  null values
+SELECT * 
+FROM film
+WHERE 
+	Film_id IS NULL OR
+	title IS NULL OR
+	release_year IS NULL OR
+	Language_id IS NULL OR
+	rental_duration IS NULL OR
+	rental_rate IS NULL;
