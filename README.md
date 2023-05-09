@@ -7,3 +7,5 @@ This portfolio contains examples of SQL used to analyze a movie rental company's
 - Which countries are Rockbuster customers based in?
 - Where are customers with a high lifetime value based?
 - Do sales figures vary between geographic regions?
+
+These questions were answered through data visualization via Tableau as can be seen here: https://public.tableau.com/views/RockBusterFinalPresentation/GraphicsUsed?:language=en-US&:display_count=n&:origin=viz_share_link
